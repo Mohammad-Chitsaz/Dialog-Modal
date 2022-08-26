@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listbox (Select)</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </head>
+  <body x-data="{ isOpen: false }" class="h-screen relative bg-gradient-to-r from-sky-400 to-blue-600">
+    <button
+      @click="isOpen = true"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 py-2 px-4 rounded-md text-white bg-blue-900/30 transition-all duration-500"
+      :class="isOpen ? 'opacity-0 scale-0' : ''"
+    >
+      Open dialog
+    </button>
+
+    <div
+      :class="isOpen ? 'opacity-100 scale-100' : ''"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/3 py-5 px-6 rounded-2xl bg-white opacity-0 scale-0 transition-all duration-500"
+    >
+      <h2 class="text-xl font-medium">Payment successful</h2>
+      <p class="text-sm text-gray-500 my-2">
+        Your payment has been successfully submitted. We’ve sent you an email with all of the details of your order.
+      </p>
+      <button @click="isOpen = false" class="py-2 px-4 rounded-md mt-2 text-blue-800 bg-blue-200">
+        Got it, thanks!
+      </button>
+    </div>
+  </body>
+</html>
